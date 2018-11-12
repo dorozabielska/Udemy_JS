@@ -69,7 +69,7 @@ console.log(markAge);
 
 
 // Challenge 1
-
+/*
 var markMass, markHeigh, johnMass, johnHeigh;
 
 markMass = 70;
@@ -89,23 +89,13 @@ markFat = markBMI > johnBMI;
 
 console.log('Mark\'s BMI is grater than John\'s? That\'s ' + markFat +'!');
 
+*/
 
 
 
-
-
-
-
-
-
-
-
-
+//Lecture 2.14: If Else statement 
 
 /*
-
-//Lecture: If Else statement 
-
 var name = 'John';
 var age = 26;
 var isMarried = 'yes';
@@ -118,12 +108,14 @@ else{
     console.log(name + ' isn\'t married.')
 }
 
+
 isMarried = false;
 
 if(isMarried){
     console.log('YES!');
 }else {
     console.log('NO!');
+    
 }
 
 //Skrócony if/else kiedy chcemy tylko rezultat od TRUE:
@@ -136,7 +128,7 @@ if(isMarried) {
 // różnica między === a == 
 // == robi koercję
 if(23 == '23'){
-    console.log('== przekształca numer w string');
+    console.log('== przekształca numer w string : \'23\' \=\= \'23\' -> TRUE');
 }
 
 // === nie robi koercji
@@ -146,21 +138,72 @@ if(23 === '23'){
 
 */
 
-// Lecture: Boolean logic & switch && || ! 
+
+//Challenge 1 with if/else
+/*
+var markMass, markHeigh, johnMass, johnHeigh;
+
+markMass = 70;
+markHeigh = 1.90;
+johnMass = 120;
+johnHeigh = 1.75;
+
+console.log(markMass, markHeigh, johnMass, johnHeigh);
+
+var markBMI, johnBMI;
+markBMI = markMass / (markHeigh * markHeigh);
+johnBMI = johnMass / (johnHeigh * johnHeigh);
+
+console.log(markBMI, johnBMI);
+
+
+if(markBMI > johnBMI){
+    console.log('Mark\'s BMI is grater than John\'s!');    
+}else{
+    console.log('John\'s BMI is grater than Mark\'s!');  
+}
+*/
+
+
+
+// Lecture 2.15: Boolean logic & switch && || ! 
 /*
 var age = 20
-if (age <20) {
+if (age < 12){
+    console.log('John is a boy');
+}else if (age >=12 && age < 20) {
     console.log('John is a teenager');
-} else if (age >= 20 && age <30) {
+} else if (age >= 20 && age < 30) {
     console.log('John is a young man');
 }else {
     console.log('John is a middle age man');
 }
+*/
+
+
+/*
+// Lecture 2.16: Ternary operator and switch statements
+
+
+// Ternary: 3 parts: 1.statement >=<, 2.if ?, 3.else : //
+
+var age = 15
+age > 18 ? console.log('You can drink beer.')
+: console.log('You drink juice');
+
+
+var drink = age > 18 ? 'beer' : 'juice';
+console.log(drink);
+
+
+// Switch: case: break: default
 
 var job;
 job = prompt('What is his job?');
 switch (job) {
     case 'teacher':
+    case 'instructor':
+    case 'mentor':    
         console.log('John teaches people.');
         break;
     case 'singer':
@@ -173,23 +216,34 @@ switch (job) {
         console.log('John does nothing interesting ;)');
 }
 
+
+// Switch with boolean / logical expression
+
+
+age = 20
+
+switch (true){
+    case age < 12:
+        console.log('John is a boy');
+        break;
+    case age >=12 && age < 20:
+        console.log('John is a teenager');
+        break;
+    case age >= 20 && age < 30:
+        console.log('John is a young man');
+        break;
+    default:
+        console.log('John is a middle age man');    
+}
 */
 
 
 
+//TODO: Lecture 2.17
 
 
 
-
-
-
-
-
-
-
-
-
-// Challenge 1
+// Challenge 1 (OLD,2016) 
 
 /* var johnHeight, johnAge, friendHeight, friendAge, thirdHeight, thirdAge;
 
