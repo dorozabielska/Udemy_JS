@@ -139,7 +139,7 @@ if(23 === '23'){
 */
 
 
-//Challenge 1 with if/else
+//Challenge 1 +  if/else statement
 /*
 var markMass, markHeigh, johnMass, johnHeigh;
 
@@ -239,7 +239,79 @@ switch (true){
 
 
 
-//TODO: Lecture 2.17
+// Lecture 2.17 
+// Thuthy and Falsy 
+
+
+/*
+alert('Falsy are: undefined, null, 0, \' \', Nan.');
+
+
+// What to do with zero 0 ? 
+
+var height = 0
+if (height) {
+    console.log('You know how to deal with zero. :)');
+}else {
+    console.log('Your var is zero and is falsy now. :(');
+}
+
+
+if (height || height === 0) {
+    console.log('You know how to deal with zero now. :)');
+}else {
+    console.log('Your var is zero and is falsy. :(');
+}
+
+
+// Equality operator:
+
+
+height = 23 //number
+if(height == '23'){ //string
+    console.log('This is coertion because of == operator. 23 == \'23\' ');
+}
+
+*/
+
+// Lecture 2.18 Challenge 2.2 2018
+
+
+var johnScore, miceScore;
+johnScore = (89 + 120 + 103) / 3;
+markScore = (116 + 94 + 123) /3;
+
+console.log('John: ' + johnScore);
+console.log('Mark: ' + markScore);
+
+
+if (johnScore > markScore){
+    console.log('John wins with score ' + johnScore );
+}else if (markScore > johnScore) {
+    console.log('Mark wins with score ' + markScore);
+//} else if (age >= 20 && age < 30) {
+ //   console.log('John is a young man');
+}else {
+    console.log('It\'s a tie with ' + johnScore, markScore);
+}
+
+
+var maryScore;
+maryScore = (97 + 134 + 102) /3;
+console.log('Mary: ' + maryScore);
+
+
+if (johnScore > markScore && johnScore > maryScore){
+    console.log('John wins with the score ' + johnScore );
+}else if (markScore > johnScore && markScore > markScore) {
+    console.log('Mark wins with the score ' + markScore);
+}else if (maryScore > johnScore && maryScore > markScore ) {
+    console.log('Marry wins with the score ' + maryScore);
+}else {
+    console.log('It\'s a tie!');
+}
+
+
 
 
 
@@ -297,7 +369,13 @@ if (johnScore > friendScore && johnScore > thirdScore) {
 }
 */
 
+// ******************************************
+
+
+
 // Function
+
+
 /*
 function calculateAge(yearOfBirth) {
     var age = 2018 - yearOfBirth;
