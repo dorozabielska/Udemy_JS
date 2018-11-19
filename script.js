@@ -268,15 +268,7 @@ if (height || height === 0) {
 
 
 height = 23 //number
-if(height == '23'){ //string
-    console.log('This is coertion because of == operator. 23 == \'23\' ');
-}
-
-*/
-
-// Lecture 2.18 Challenge 2.2 2018
-
-
+if(height == '23'){ //str*
 var johnScore, miceScore;
 johnScore = (89 + 120 + 103) / 3;
 markScore = (116 + 94 + 123) /3;
@@ -310,7 +302,7 @@ if (johnScore > markScore && johnScore > maryScore){
 }else {
     console.log('It\'s a tie!');
 }
-
+*/
 
 
 
@@ -376,34 +368,84 @@ if (johnScore > friendScore && johnScore > thirdScore) {
 // Function
 
 
+// Structure:
+/*
+function nameOfThisFunction(anArgument){ // also zero argument() or many (x, y, z)
+    return 2018 - anArgument; // nameOfThisFunction is returned, anArgument will be provided
+}
+//nameOfThisFunction(1987); // here argument is provided in the brackets it has to be stored somewhere, so:
+var varToStoreResultOfFunction = nameOfThisFunction(1990); //this var stores the result 
+console.log('example 0 ' + varToStoreResultOfFunction);
+*/
+
+// Example 1:
+ /*
+function calculateAge(yearOfBirth){
+    return 2018 - yearOfBirth;
+}
+var ageJohn = calculateAge(1990); // in this line we 'call' the function
+console.log('John\'s age is ' + ageJohn);
+// now I can use function many times:
+var ageMike = calculateAge(1948);
+var ageMary = calculateAge(1960);
+console.log(ageJohn, ageMike, ageMary); */
+
+
+//Examle 2:
+// Comment Example 1! Or see what hapened when we use the same name of function.
+// In this example we didn't use "return" but we use "var"
+/*
+function calculateAge(yearOfBirth){
+    var ageOfPerson = 2018 - yearOfBirth; // return stops functon immediatelly
+    console.log('Person\'s age is ' + ageOfPerson);
+}
+//calling function
+calculateAge(1990);
+calculateAge(1987);
+calculateAge(1988); */
+
+
+//Example 3:
+// Comment Example 1 & Example 2.
 /*
 function calculateAge(yearOfBirth) {
-    var age = 2018 - yearOfBirth;
+    age = 2018 - yearOfBirth;
     return age;
-    // efektem tej funkcji jest obliczenie var age, return. Nic nie zrobi bez podania var dalej
+    // efektem tej funkcji jest obliczenie age, return. ta funkcja zadziałała bez var, bo użyliśmy return.
 }
+// console.log(age); //to wywłanie age nie zadziała, bo nigdzie nie wywołaliśmy jeszcze funkcji
+console.log(calculateAge(1987) + ' to wywołanie funkcji'); //wywołanie funkcji w console log.
+console.log(age);
+console.log(calculateAge(2018) + ' to drugie wywołanie')
+console.log(age); // age się zmieniło przez ostatnie wywołanie funkcji.
+*/
 
-var ageRadek = calculateAge(1953);
-var ageMaciej = calculateAge(1950);
-var ageDoro = calculateAge(1987);
-
-console.log(ageRadek);
-console.log(ageMaciej);
-console.log(ageDoro); /*
-
-// Zapisać powyższą funkcję z dwoma parametrami: imię i lata.
-// console.log w funkcji
-// wywołać bez var
+//Example 4:
+// Function with 2 parameters. Var, no return
 /*
 function ageOfPerson(year, name) {
     var age = 2018 - year;
     console.log(name + ' is ' + age + ' years old.')
 }
-
 ageOfPerson(1987, 'Doro');
 ageOfPerson(1988, 'Sali');
-ageOfPerson(1986, 'Karo');
-*/
+ageOfPerson(1986, 'Karo'); */
+
+
+// Example 5:
+// Comment Examples above
+// Copy and paste function Example 1 here and then reuse this function in another function
+
+function calculateAge(yearOfBirth){
+    return 2018 - yearOfBirth;
+}
+
+
+
+
+
+
+
 
 /*
 function yearsToRetirement(name, yearOfBirth ) { 
