@@ -402,8 +402,8 @@ function calculateAge(yearOfBirth){
 //calling function
 calculateAge(1990);
 calculateAge(1987);
-calculateAge(1988); */
-
+calculateAge(1988); 
+*/
 
 //Example 3:
 // Comment Example 1 & Example 2.
@@ -413,6 +413,7 @@ function calculateAge(yearOfBirth) {
     return age;
     // efektem tej funkcji jest obliczenie age, return. ta funkcja zadziałała bez var, bo użyliśmy return.
 }
+
 // console.log(age); //to wywłanie age nie zadziała, bo nigdzie nie wywołaliśmy jeszcze funkcji
 console.log(calculateAge(1987) + ' to wywołanie funkcji'); //wywołanie funkcji w console log.
 console.log(age);
@@ -436,25 +437,19 @@ ageOfPerson(1986, 'Karo'); */
 // Comment Examples above
 // Copy and paste function Example 1 here and then reuse this function in another function
 
+
+/*
 function calculateAge(yearOfBirth){
     return 2018 - yearOfBirth;
 }
 
-
-
-
-
-
-
-
-/*
-function yearsToRetirement(name, yearOfBirth ) { 
-// argument ma taką samą nazwę, ale jest innym argumentem, bo w innej funkcji. Ha!
-    var age = calculateAge(yearOfBirth);
+ 
+function yearsToRetirement(year, firstName ) { 
+    var age = calculateAge(year);
     var years = 65 - age;
     
-    if (years >= 0){
-        console.log('Years to retirement for ' + name + ' is ' + years);
+    if (year >= 0){
+        console.log('Years to retirement for ' + firstName + ' is ' + year);
     } else {
         console.log(name + ' is already retirement.')
     }
@@ -463,12 +458,14 @@ function yearsToRetirement(name, yearOfBirth ) {
 }
 
 // Wywołanie funkcji:
-yearsToRetirement('Maciej', 1950);
-yearsToRetirement('Doro', 1987);
-yearsToRetirement('Radosław', 1953);
-
+yearsToRetirement(1990, 'John');
+yearsToRetirement(1948, 'Mike');
+yearsToRetirement(1969, 'Jane');
 */
 
+
+
+// Lecture 2.21 Function Statements and Expressions 
 // Expressions:
 // produce a value or outcome or product, eg
 /* var someFun = function(par);
@@ -486,16 +483,39 @@ if(x===5){
 } */
 
 
-// Arays
+// Expression example
+/*
+var whatDoYouDo = function(job, firstName){
+    switch(job){
+        case 'teacher':
+            return firstName + ' teaches kids';
+        case 'driver':
+            return firstName + ' drives';
+        case 'designer':
+            return firstName + ' designs UX';
+        default: 
+            return firstName + ' does something else';
+    }
+}
+console.log(whatDoYouDo('designer', 'Jakub'));
+console.log(whatDoYouDo('actor', 'Olivier'));
+*/
+
+
+// Lecture 2.22 Arays
 // [0, 1, 2]
-/* var names = ['Doro', 'John', 'Kuba'];
-var years = new Array(30, 26, 31);
-console.log(names[0]);
+/*
+var names = ['Doro', 'John', 'Kuba']; // we use brackets [,] 
+var years = new Array(30, 26, 31); // this is Array function
+console.log(names[0]); // first element has 0 
 console.log(names);
+console.log(names.length) // shows how many elements there is in array
 
 // mutacja określonego elementu
 names[1] = 'Kasia';
-console.log(names[1]);
+names[5] = 'Andrzej'; // in this case add 6th element
+console.log(names);
+
 
 // mutacja arraya
 var doro = ['Doro', 30, false];
@@ -508,13 +528,61 @@ doro.pop(); // usuwa ostatni
 console.log(doro);
 doro.shift(); // usuwa pierwszy
 console.log(doro);
+
 doro.indexOf(30); // pokaż pozycję elementu
 console.log(doro.indexOf(30));
-
+console.log(doro.indexOf('singer')); // shows -1 because element isn't in array
 // sprawdzenie czy elemntu nie ma w array'u
 if (doro.indexOf('singer') === -1) {
     console.log('Doro isn\'t a singer');
-} */
+}else{
+    console.log('Doro is a singer');
+}
+*/
+
+// Lecture 2.23
+// Coding Challenge 3 
+
+/* The bills were $124; $48, $268.
+Tip calculator as a function
+rules: 
+20% if bill <$50
+15% if bill <&50; &200>
+10% if bill > $200
+
+End results has to be in arrays:
+1) [tip1, tip2, tip3] bill * %
+2) [total1, total2, total3] tip + bill
+
+Formula for percentege: bill*20/100 === bill*0.2
+*/
+
+var percentage = function(bill){
+    if (bill < 50){
+        var tip = bill*0.2;
+    }else if (bill >= 50 && bill <=200){
+        var tip = bill*0.15;
+    }else{
+        var tip = bill*0.1;
+    }
+    return tip
+}
+console.log(percentage(124));
+
+var total = function(bill) {
+    var tip = percentage(bill);
+    var totalSpend = tip + bill
+    return totalSpend
+}
+
+console.log(total(124));
+
+var tips = [percentage(124), percentage(48), percentage(268)];
+var totalBills = [total(124), total(48), total(268)];
+
+console.log(tips);
+console.log(totalBills);
+
 
 // Objects = {} dwukropek przecinki
 
