@@ -516,7 +516,6 @@ names[1] = 'Kasia';
 names[5] = 'Andrzej'; // in this case add 6th element
 console.log(names);
 
-
 // mutacja arraya
 var doro = ['Doro', 30, false];
 console.log(doro);
@@ -540,6 +539,7 @@ if (doro.indexOf('singer') === -1) {
 }
 */
 
+// ***********************************************************************************
 // Lecture 2.23
 // Coding Challenge 3 
 
@@ -557,6 +557,8 @@ End results has to be in arrays:
 Formula for percentege: bill*20/100 === bill*0.2
 */
 
+// My solution: 
+/*
 var percentage = function(bill){
     if (bill < 50){
         var tip = bill*0.2;
@@ -582,66 +584,211 @@ var totalBills = [total(124), total(48), total(268)];
 
 console.log(tips);
 console.log(totalBills);
+*/
+
+// Lecture 2.24 - Trainer solution
 
 
-// Objects = {} dwukropek przecinki
+
+
+
+//*********************************************************************************
+// Lecture 2.25 Objects and properties
 
 /*
+//Example
+var objectName = {
+    key: 'value',
+    key1: 'value1'
+};
+// Example 2
+var newObjectName = new Object();
+
+// object literal - pierwszy sposób tworzenia obiektu
 var john = {
     name: 'John',
     surname: 'Smith',
     yearOfBirth: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
     job: 'teacher',
     isMarried: false
 };
 
 console.log(john); // wywołanie całego obiektu
+
 console.log(john.name); // wywołanie klucza
 console.log(john['name']); // wywołanie klucza drugi sposób
-var xyz = 'name';
-console.log(john[xyz]); // zagmatwany sposób na to samo
-// mutacje
-john.surname = 'Miller';
-john['job'] = 'progammer'
 
-// Inny sposób tworzenia obiektu
+var x = 'name';
+console.log(john[x]); // zagmatwany sposób na to samo
 
+
+// ******** Mutacje *****
+john.surname = 'Miller';    // .key =
+john['job'] = 'progammer';  // ['key'] =
+console.log(john);
+
+
+
+//  ********** Inny sposób tworzenia obiektu ********* 
+// new Object syntax
 var jane = new Object(); // pusty obiekt
 // teraz można go wypełnić key=value
+
 jane.name = 'Jane';
 jane.surname = 'Smith';
 jane['yearOfBirth'] = 1991;
 jane['job'] = 'Actress';
 jane['isMarried'] = true;
 
-console.log(jane); */
+console.log(jane); 
+*/
 
-// objects continue
+// Lecture 2.26 
+// objects continue + function inside 
+
+//Intr to Examples:
 
 /*
-
-var john = {
-    name: 'John',
-    surname: 'Smith',
+// I use the john object, but only with yearOfBirth, 
+//because I dont need any other key for calculation:
+var john = {    
     yearOfBirth: 1990,
-    job: 'teacher',
-    isMarried: false,
-    //calculateAge: function(yearOfBirth) {
-    //    return 2018 - yearOfBirth
-    //}
-    calculateAge: function() {
-        return 2018 - this.yearOfBirth // john.yearOfBirth
-    }
 };
-
-console.log(john.calculateAge());
-
+console.log(john);
 */
 
 
+// Example1
+// comment Intro
+
+//Object:
+/*
+var john = {    
+    yearOfBirth: 1990,
+};
+// Mutation: new key to this object, calcAge is function:
+
+john.calcAge = function(birthYear){
+    return 2018 - birthYear;
+}
+console.log(john.calcAge(1990)); // I have to call it here with year
+console.log(john); // calcAge:f (no number)
+*/
+
+//Example 2: using function() and THIS:
+// comment above
+/*
+var john = {    
+    yearOfBirth: 1990,
+};
+ 
+john.calcAge = function(){
+    return 2018 - this.yearOfBirth;
+}
+console.log(john.calcAge()); // now can call it without a year
+console.log(john); // calcAge:f (no number
+*/
+
+// Example 3: I add the new key with outcome of function (number)
+// comment above
+
+/*
+var john = {    
+    yearOfBirth: 1990
+};
+ 
+john.calcAge = function(){
+    return 2018 - this.yearOfBirth;
+}
+var age = john.calcAge();  // hey I want a new var with number
+console.log(age);
+john.age = age; // and here I put this var to john Object
+// nobody tells you, but john.age = john.calcAge(); /next Example
+
+console.log(john); // look this is object john with his age
+*/
+
+// Example 4. I don't want to declare new var for age
+// I want it just right into object
+// And I want it all in object without mutation
+
+/*
+var john = {    
+    yearOfBirth: 1990,
+    calcAge: function(){
+        return 2018 - this.yearOfBirth;
+},
+};
+
+john.age = john.calcAge(); // nobody tells you Ex3
+console.log(john);
+*/
+
+// Example 5 - putting age into function calculation as this.age
+// comment above
+/*
+var john = {    
+    yearOfBirth: 1990,
+    calcAge: function(){
+        this.age = 2018 - this.yearOfBirth; // john.age = ~john.calcAge();~ = calculation itself
+},
+};
+console.log(john); // no age?????
+
+john.calcAge(); // call this function
+console.log(john); // and now there is AGE
+*/
 
 
+//****************************************************************
+//Lecture 2.27
+// Coding Challenge 4
+// create objects mark and john and add method to calc BMI
+/*
+var markMass, markHeigh, johnMass, johnHeigh;
+markMass = 70;
+markHeigh = 1.90;
+johnMass = 120;
+johnHeigh = 1.75;
+console.log(markMass, markHeigh, johnMass, johnHeigh);
 
+var markBMI, johnBMI;
+markBMI = markMass / (markHeigh * markHeigh);
+johnBMI = johnMass / (johnHeigh * johnHeigh);
+
+console.log(markBMI + ' ' + johnBMI);
+markFat = markBMI > johnBMI;
+console.log('Mark\'s BMI is grater than John\'s? That\'s ' + markFat +'!');
+*/
+// My solution
+
+function calculateBMI(mass, height){
+    BMI = mass / (height*height);
+    return BMI;
+};
+console.log(calculateBMI(63,1.65));
+
+
+var mark = {
+    mass:70, //kg
+    height: 1.90, //m
+    calcBMI: function(){
+        this.BMI = this.mass / (this.height * this.height);
+}
+};
+mark.calcBMI();
+
+var john = {
+    mass:120,
+    height: 1.75,
+};
+
+// using outside function
+john.BMI = calculateBMI(john.mass,john.height);
+
+console.log(mark);
+console.log(john);
 
 
 
